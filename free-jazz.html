@@ -6,6 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Jazz | Downtown Sounds</title>
   <link rel="icon" type="image/svg" href="cursor.svg">
+  <script type="text/javascript">
+    async function onClickSubmit(){
+      var bandName = document.getElementById("bandName").value;
+      var url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${bandName}&api_key=928031031362dbf4d61e8801bdfea982&format=json`
+      var response = await fetch(url);
+      var jsonData = await response.json();
+      writeToPage(jsonData);
+    }
+    function writeToPage(artist){
+      var info = `
+      <h1>${artist.artist.name}</h1>
+        <p><b>Summary:</b> ${artist.artist.bio.summary}<br></p>
+    `
+      document.getElementById("test").innerHTML = info;
+    }
+  </script>
 </head>
 <body>
   <div class = "header">
@@ -19,7 +35,7 @@
     <div id="leftText">
       <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6VF0DLKHPZ359qufjW7ZqM?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
-    <div id ="textBox">
+    <div id = "textBox">
     <p>
       When we think of the sound of The Big Apple, one of the first things that comes to mind may be George Gershwin’s Rhapsody In Blue, or Frank Sinatra’s “New York, New York.” Including these two classics, we are willing to bet that almost any song that comes to mind when thinking of the city will have elements of, or be indebted to Jazz. The genre, while having its origins in New Orleans, has a history that runs deep in Manhattan as well. Jazz developed in big cities, particularly in areas with large, diverse Black populations. New Orleans, for example, was home to the gens de couleur libres, the free people of color, who were Black Americans previously enslaved by France when Louisiana was a French colony. They kept their freedom after the United States gained the state in the Louisiana Purchase, after which members of the gens de couleur libres went on to create one of the strongest early civil rights enclaves in the country in New Orleans.
       <br>
@@ -29,9 +45,6 @@
       <br>
     Here are some brief profiles of three artists that helped develop the New York City free jazz scene into a global phenomenon. Click on any highlighted artist’s name below to learn more about them.
   </p>
-  </div>
-  <div id="rightText">
-    <p>Just an example of what rightText looks like.</p>
   </div>
   </div>
 
@@ -52,9 +65,6 @@
       <br>
       Along with his friend and collaborator Don Cherry and others, he released the album <em>The Shape of Jazz To Come</em> in 1959. The album was divisive, with many praising its novelty–nothing had ever sounded quite like it–while others dismissed it as unstructured noise. Dizzy Gillespie famously said, “I don’t know what he’s playing, but it’s not jazz.” The album was provocative and unique enough to get people talking, and much like its title suggests, changed the course of the future of jazz forever.
     </p>
-  </div>
-  <div id="rightText">
-    <p>some rightText here</p>
   </div>
 </div>
 <div id="review">
@@ -78,8 +88,6 @@
       He was discharged from the army, and after many moves within the United States and Europe, he settled in New York in 1963 shortly after the release of his first record <em>Something Different!!!!</em>, where he set up a trio with Sunny Murray and Gary Peacock. His compositions very clearly bare the influences of the liturgy and armed forces. They are both structured like marching rallies while having the jubilant melissima of gospel music.
   </p>
   </div>
-  <div id="rightText">
-    <p>Just an example of what rightText looks like.</p>
   </div>
   </div>
   <div id="review">
@@ -94,13 +102,26 @@
     </div>
     <div id ="textBox">
     <p>
-      Cecil Taylor Text
+      Cecil Taylor was one of New York’s own. Born and raised in Queens, Taylor was a classically trained pianist who found inspiration in the European avant-garde, including in the works of composers Béla Bartók and Karlheinz Stockhausen. Considering his experimental palette, he had a hard time finding paying gigs at first. After studying music and spending time away from the city, he moved back in 1955, still four years away from Ornette Coleman’s landmark record <em>The Shape of Jazz to Come</em>. 
+      <br>
+      <br>
+      But as time went by, Taylor’s playing just got stranger and stranger. The record that really set him apart for good was 1966’s <em>Unit Structures</em>. Unit structures are actually a composition technique created by Taylor that intend to liberate musicians from chord sequences and instead focus on sonic environments. Archie Shepp, a frequent collaborator and friend of Taylor, once said that the technique helped him become a much better improviser, by freeing him of the ever-present influence of the styles of John Coltrane.
+      <br>
+      <br>
+      Some of Taylor’s other frequent collaborators are Jimmy Lyons, Andrew Cyrille, Sunny Murray, and Sam Rivers. Composer and jazz musician Anthony Braxton was also heavily influenced by Taylor’s music.
   </p>
   </div>
-  <div id="rightText">
-    <p>Just an example of what rightText looks like.</p>
   </div>
+  </div>
+  <div id = "fixedText">
+    <div id="search">
+      <h2>Artist Search</h2>
+      <input type="text" id="bandName" name="bandName">
+      <button type="button" onclick="onClickSubmit()">Submit</button>
+      <div id="test"></div>
+   </div>
   </div>
 <footer class = "foot"><p>&copy; Jackson Galati & <a href="https://troyschipdam.neocities.org/">Troy Schipdam</a> 2025</p></footer>
 </body>
 </html>
+
