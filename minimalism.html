@@ -6,6 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minimalism | Downtown Sounds</title>
   <link rel="icon" type="image/svg" href="cursor.svg">
+  <script type="text/javascript">
+    async function onClickSubmit(){
+      var bandName = document.getElementById("bandName").value;
+      var url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${bandName}&api_key=928031031362dbf4d61e8801bdfea982&format=json`
+      var response = await fetch(url);
+      var jsonData = await response.json();
+      writeToPage(jsonData);
+    }
+    function writeToPage(artist){
+      var info = `
+      <h1>${artist.artist.name}</h1>
+        <p><b>Summary:</b> ${artist.artist.bio.summary}<br></p>
+    `
+      document.getElementById("test").innerHTML = info;
+    }
+  </script>
 </head>
 <body>
   <div class = "header">
@@ -24,9 +40,6 @@
         PAGE INTRO AND GENERAL GENRE DESCRIPTION HERE 
   </p>
   </div>
-  <div id="rightText">
-    <p>Just an example of what rightText looks like.</p>
-  </div>
   </div>
 
 <div id="review">
@@ -44,9 +57,6 @@
       ARTIST BIO HERE
     </p>
   </div>
-  <div id="rightText">
-    <p>some rightText here</p>
-  </div>
 </div>
 <div id="review">
   <h2>ARTIST 2 NAME</h2>
@@ -62,9 +72,6 @@
     <p>
       ARTIST BIO HERE
     </p>
-  </div>
-  <div id="rightText">
-    <p>some rightText here</p>
   </div>
 </div>
   <div id="review">
@@ -82,10 +89,15 @@
       ARTIST BIO HERE
     </p>
   </div>
-  <div id="rightText">
-    <p>some rightText here</p>
-  </div>
 </div>
+  <div id = "fixedText">
+    <div id="search">
+      <h2>Artist Search</h2>
+      <input type="text" id="bandName" name="bandName">
+      <button type="button" onclick="onClickSubmit()">Submit</button>
+      <div id="test"></div>
+   </div>
+  </div>
 <footer class = "foot"><p>&copy; Jackson Galati & <a href="https://troyschipdam.neocities.org/">Troy Schipdam</a> 2025</p></footer>
 </body>
 </html>
