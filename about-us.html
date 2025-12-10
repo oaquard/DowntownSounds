@@ -162,11 +162,12 @@
       albums[i].style.display = "none"; 
     } 
     // NOW we can display our album covers!
-    // This if statement tells the function to 'block' not being displayed (double negative) when its albumIndex number is referenced
+    // This if statement tells the function display an album cover only when its albumIndex number is referenced
     // we have to subtract 1 from albums because document.getElementByClassName("mySlides") counts from 0 
     if (albums.length > 0) { albums[albumIndex-1].style.display = "block"; } 
 }
 </script>
 </body>
 </html>
+
 
