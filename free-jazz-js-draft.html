@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Jazz | Downtown Sounds</title>
+  <link rel="icon" type="image/svg" href="cursor.svg">
+  <script type="text/javascript">
+    async function onClickSubmit(){
+      /*async means the function can use await, essentially waiting for user input*/
+      var bandName = document.getElementById("bandName").value;
+      var url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${bandName}&api_key=928031031362dbf4d61e8801bdfea982&format=json`
+      var response = await fetch(url);
+      var jsonData = await response.json();
+      /*awaits ahoy! the above lines "fetch" the data from last.fm and store it as a variable displayed below*/
+      writeToPage(jsonData);
+    }
+    function writeToPage(artist){
+      var info = `
+      <h1>${artist.artist.name}</h1>
+        <p><b>Summary:</b> ${artist.artist.bio.summary}<br></p>
+    `
+      document.getElementById("test").innerHTML = info;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.artistLink').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var name = this.dataset.artist || this.textContent.trim();
+          var input = document.getElementById('bandName');
+          if(input){ input.value = name; input.focus(); }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class = "header">
+    <a href="index.html" class="headerLink"><img src="wojBannerAlt.png" class="stretchy-pic"></a>
+    <p>
+      <a href="about-us.html" class="headerLink">About Us</a> | <a href="post-punk.html" class="headerLink">Post-Punk</a> | <a href="no-wave.html" class="headerLink">No Wave</a> | <a href="free-jazz.html" class="headerLink">Free Jazz</a> | <a href="minimalism.html" class="headerLink">Minimalism</a>
+    </p>
+  </div>
+  <div id="review">
+    <h2>Free Jazz</h2>
+  </div>
+  <div id = "review">
+    <div id="leftText">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6VF0DLKHPZ359qufjW7ZqM?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div id = "textBox">
+    <p>
+      When we think of the sound of The Big Apple, one of the first things that comes to mind may be George Gershwin’s Rhapsody In Blue, or Frank Sinatra’s “New York, New York.” Including these two classics, we are willing to bet that almost any song that comes to mind when thinking of the city will have elements of, or be indebted to Jazz. The genre, while having its origins in New Orleans, has a history that runs deep in Manhattan as well. Jazz developed in big cities, particularly in areas with large, diverse Black populations. New Orleans, for example, was home to the gens de couleur libres, the free people of color, who were Black Americans previously enslaved by France when Louisiana was a French colony. They kept their freedom after the United States gained the state in the Louisiana Purchase, after which members of the gens de couleur libres went on to create one of the strongest early civil rights enclaves in the country in New Orleans.
+      <br>
+      <br>
+    While Jazz is rooted in Black pain–another major influence on the genre is the blues, after all–it is also a product of the effusive joy, vibrant community, and hearty spirit that are part of Black American life. Free Jazz is no different in that regard. But when it comes to sound, it sets itself apart by miles.
+      <br>
+      <br>
+    Here are some brief profiles of three artists that helped develop the New York City free jazz scene into a global phenomenon. Click on any highlighted artist’s name below to learn more about them.
+  </p>
+  </div>
+  </div>
+
+<div id="review">
+  <h2>Ornette Coleman</h2>
+</div>
+<div id="review">
+  <div id="leftText">
+    <figure>
+    <img src="ornette.jpg" alt="Ornette Coleman's The Shape of Jazz to Come Album Cover" class="stretchy-pic">
+    <figcaption>Ornette Coleman's 1959 album The Shape of Jazz to Come</figcaption>
+    </figure>
+  </div>
+  <div id="textBox">
+    <p>
+      The story of Free Jazz starts in 1959, when an alto saxophonist named <button class="artistLink" data-artist="Ornette Coleman">Ornette Coleman</button> moved to 131 Prince Street in the SoHo neighborhood of Manhattan. Coleman moved to NYC to start his residency at legendary jazz club The Five Spot with pianist Paul Bley. Coleman hoped that moving to the city would help find a more receptive audience for his music. Even in the more diverse state of Louisiana, him and his music were met with prejudice. After one performance, he was attacked, leaving his saxophone destroyed. His hope was, by moving to the home city of The Bird (a.k.a. Charlie Parker) and bebop, he would find more like minded individuals to make music with.
+      <br>
+      <br>
+      Along with his friend and collaborator Don Cherry and others, he released the album <em>The Shape of Jazz To Come</em> in 1959. The album was divisive, with many praising its novelty–nothing had ever sounded quite like it–while others dismissed it as unstructured noise. Dizzy Gillespie famously said, “I don’t know what he’s playing, but it’s not jazz.” The album was provocative and unique enough to get people talking, and much like its title suggests, changed the course of the future of jazz forever.
+    </p>
+  </div>
+</div>
+<div id="review">
+      <h2>Albert Ayler</h2>
+</div>
+<div id = "review">
+    <div id="leftText">
+      <figure>
+        <img src="ayler.jpg" alt="Albert Ayler playing a tenor sax" class="stretchy-pic">
+        <figcaption>Albert Ayler on a tenor saxophone</figcaption>
+      </figure>
+    </div>
+    <div id ="textBox">
+    <p>
+      Albert Ayler once said there was a Free Jazz holy trinity, “John Coltrane is the father, Pharoah Sanders is the son, and I am the holy ghost.” Most people familiar with jazz will be familiar with Coltrane, and many with Sanders as well. Of the three horn players, Alber Ayler was the loudest, harshest, and challenging musician. As abrasive as it is effusive, his music is some of the most unique to come out of the genre.
+        <br>
+        <br>
+      Ayler started playing live in churches as a young boy in Cleveland, Ohio. Though a dedicated student, he lacked the funding to finish college, and joined the army instead. While stationed in Orléans, France, he played with the 76th Adjutant General’s Army Band, while honing his own unique style while playing with local musicians and sitting in with groups in Paris.
+        <br>
+        <br>
+      He was discharged from the army, and after many moves within the United States and Europe, he settled in New York in 1963 shortly after the release of his first record <em>Something Different!!!!</em>, where he set up a trio with Sunny Murray and Gary Peacock. His compositions very clearly bare the influences of the liturgy and armed forces. They are both structured like marching rallies while having the jubilant melissima of gospel music.
+  </p>
+  </div>
+  </div>
+  </div>
+  <div id="review">
+        <h2>Cecil Taylor</h2>
+  </div>
+  <div id = "review">
+    <div id="leftText">
+      <figure>
+        <img src="cecil.jpg" alt="Cecil Taylor posing next to a piano" class="stretchy-pic">
+        <figcaption>Cecil Taylor stylishly posing next to a piano</figcaption>
+      </figure>
+    </div>
+    <div id ="textBox">
+    <p>
+      Cecil Taylor was one of New York’s own. Born and raised in Queens, Taylor was a classically trained pianist who found inspiration in the European avant-garde, including in the works of composers Béla Bartók and Karlheinz Stockhausen. Considering his experimental palette, he had a hard time finding paying gigs at first. After studying music and spending time away from the city, he moved back in 1955, still four years away from Ornette Coleman’s landmark record <em>The Shape of Jazz to Come</em>. 
+      <br>
+      <br>
+      But as time went by, Taylor’s playing just got stranger and stranger. The record that really set him apart for good was 1966’s <em>Unit Structures</em>. Unit structures are actually a composition technique created by Taylor that intend to liberate musicians from chord sequences and instead focus on sonic environments. Archie Shepp, a frequent collaborator and friend of Taylor, once said that the technique helped him become a much better improviser, by freeing him of the ever-present influence of the styles of John Coltrane.
+      <br>
+      <br>
+      Some of Taylor’s other frequent collaborators are Jimmy Lyons, Andrew Cyrille, Sunny Murray, and Sam Rivers. Composer and jazz musician Anthony Braxton was also heavily influenced by Taylor’s music.
+  </p>
+  </div>
+  </div>
+  </div>
+  <div class = "fixedText">
+    <div id="search">
+      <h2>Artist Search</h2>
+      <input type="text" id="bandName" name="bandName">
+      <button type="button" onclick="onClickSubmit()">Submit</button>
+      <div id="test"></div>
+   </div>
+  </div>
+<footer class = "foot"><p>&copy; Jackson Galati & <a href="https://troyschipdam.neocities.org/" target="_blank">Troy Schipdam</a> 2025</p></footer>
+</body>
+</html>

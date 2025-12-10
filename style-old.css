@@ -22,7 +22,7 @@ p {
     color: rgb(13, 10, 0);
 }
 
-.review {
+#review {
     display: flex;         /* Flexbox groups the divs within it to appear next to/in relation to each other */
     justify-content: center; /* Centers/justifies divs to the center of page*/
     width: 100%;           /* Review, as our pain parent div, will take the full page width */
@@ -31,7 +31,7 @@ p {
     border-radius: 5px;
 }
 
-.textBox {
+#textBox {
     /*main text wrapper! */
     max-width: 600px; 
     width: 90%;
@@ -47,13 +47,28 @@ p {
     margin-bottom: 50px;
 }
 
-.leftText {
-    /* Flex to grow in relation to textBox, intended to hold some text an a .stretchy-pic object */
+#leftText {
+    /* Flex to grow in relation textBox, intended to hold some text an a .stretchy-pic object */
     flex-grow: 1; 
     background-color: #e0e0e0;
     padding: 20px;
     max-width: 400px;
-    max-height: auto;
+    max-height: 400px;
+}
+
+.artistLink {
+    /* Styles for the clickable artist names, so they pop out more from within the text*/
+    text-decoration: underline;
+    font-weight: 600; /* makes link text bold*/
+    transition: color 0.2s; /* link color fades to red (as seen below) instead of just switching over hover*/
+    background: none;
+    border: none; /* Gets rid of button border and background so it link blends right in to text */
+    padding: 0; /* Gets rid of weird spacing around button attribute */
+}
+
+.artistLink:hover {
+    /* Styles artist-link when hovered over*/
+    color: #f87171;
 }
 
 /* Style for header link */
@@ -64,7 +79,6 @@ the visited link be a different color on our webpages. Looks so much better if t
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-    /*transition sets the gradual transition of the link when hovered and clicked on, for user feedback*/
 }
 
 /* Style for when the user hovers over link */
@@ -74,7 +88,7 @@ a.headerLink:hover {
 
 /* Style for when the link is being clicked on */
 a.headerLink:active {
-    color: rgb(250, 0, 208); 
+    color: black; 
 }
 
 /* Creates a centered image, reactive to browser window
@@ -97,58 +111,6 @@ size. Super crucial class! Very helpful. */
     background-color: lightgray; 
     z-index: 999; /*z-index determines stacking, which is how .fixtText can be stacked above the other elements on the website*/
     overflow-wrap: break-word; /*word wrap for long strings so they don't run off the page*/
-}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 300px;
-  max-height: 300px;
-  position: relative;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Differentiating the next button by defining it to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Some color change for feedback on mouse hover */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* specific class for album name to be set over cover images */
-.text {
-  color: #f2f2f2;
-  background-color: hsla(40, 4%, 16%, 0.5);
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
 }
 
 .foot {
